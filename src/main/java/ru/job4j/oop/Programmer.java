@@ -13,7 +13,7 @@ public class Programmer extends Engineer {
         return language;
     }
 
-    public String operatingSystem(System system) {
+    public String operatingSystem(SystemConfiguration system) {
         return system.getName();
     }
 }

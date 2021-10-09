@@ -1,9 +1,9 @@
 package ru.job4j.oop;
 
-public class System {
+public class SystemConfiguration {
     private String name;
 
-    public System(String name) {
+    public SystemConfiguration(String name) {
         this.name = name;
     }
 
