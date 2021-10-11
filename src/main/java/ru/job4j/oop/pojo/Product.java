@@ -36,7 +36,7 @@ public class Product {
             return false;
         }
         Product product = (Product) o;
-        return count == product.count && name != null
+        return count == product.count
                 && Objects.equals(name, product.name);
     }
 
