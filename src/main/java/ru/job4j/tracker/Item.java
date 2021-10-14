@@ -3,7 +3,6 @@ package ru.job4j.tracker;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@SuppressWarnings("checkstyle:LineLength")
 public class Item {
     private static final DateTimeFormatter FORMATTER
             = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
