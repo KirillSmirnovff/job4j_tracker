@@ -1,4 +1,4 @@
-package ru.job4j.poly;
+package ru.job4j.oop.poly;
 
 import java.util.Random;
 import java.util.Scanner;
