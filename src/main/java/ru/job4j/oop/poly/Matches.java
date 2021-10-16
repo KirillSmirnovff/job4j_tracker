@@ -16,11 +16,11 @@ public class Matches {
                 turn = !turn;
                 count -= matches;
                 if (count > 0) {
-                    System.out.println("Осталось " + count + " спичек \n");
+                    System.out.println("Осталось " + count + " спичек" + System.lineSeparator());
                 }
             } else {
                 System.out.println("Вы ввели неверное кол-во спичек, попробуйте еще раз.");
-                System.out.println("Осталось " + count + " спичек \n");
+                System.out.println("Осталось " + count + " спичек" + System.lineSeparator());
             }
         }
         if (!turn) {
