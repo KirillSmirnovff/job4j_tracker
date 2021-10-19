@@ -69,6 +69,7 @@ public class StartUITest {
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator()
                         + "0. Exit program" + System.lineSeparator()
+                        + "=== Exit Program ===" + System.lineSeparator()
         ));
     }
 }
