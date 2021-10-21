@@ -13,7 +13,7 @@ public class Cat {
         this.food = meat;
     }
 
-    public void giveNick (String nick) {
+    public void giveNick(String nick) {
         this.name = nick;
     }
 
