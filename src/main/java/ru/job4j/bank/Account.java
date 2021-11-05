@@ -2,8 +2,17 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает модель денежного счета клиентов банка.
+ */
 public class Account {
+    /**
+     * Поле содержит номер счета (реквизиты счета).
+     */
     private String requisite;
+    /**
+     * Поле содержит баланс счета.
+     */
     private double balance;
 
     public Account(String requisite, double balance) {
