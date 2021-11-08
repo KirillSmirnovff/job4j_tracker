@@ -50,4 +50,40 @@ public class DepartmentsTest {
         );
         assertThat(rsl, is(0));
     }
+
+    @Test
+    public void whenSortAsc() {
+        List<String> input = Arrays.asList(
+                "K2/SK2",
+                "K1",
+                "K1/SSK2",
+                "K2"
+        );
+        List<String> expected = Arrays.asList(
+                "K1",
+                "K1/SSK2",
+                "K2",
+                "K2/SK2"
+        );
+        Departments.sortAsc(input);
+        assertThat(input, is(expected));
+    }
+
+    @Test
+    public void whenSortDesc() {
+        List<String> input = Arrays.asList(
+                "K2/SK2",
+                "K1",
+                "K1/SSK2",
+                "K2"
+        );
+        List<String> expected = Arrays.asList(
+                "K2",
+                "K2/SK2",
+                "K1",
+                "K1/SSK2"
+        );
+        Departments.sortDesc(input);
+        assertThat(input, is(expected));
+    }
 }
