@@ -6,6 +6,8 @@ import java.util.stream.Stream;
 
 public class Matrix {
     public List<Integer> transform(Integer[][] matrix) {
-        return Stream.of(matrix).flatMap(Stream::of).collect(Collectors.toList());
+        return Stream.of(matrix).
+                flatMap(Stream::of).
+                collect(Collectors.toList());
     }
 }
