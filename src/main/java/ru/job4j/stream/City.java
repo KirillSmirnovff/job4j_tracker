@@ -9,6 +9,19 @@ public class City {
     private boolean metro;
     private boolean seaport;
 
+    @Override
+    public String toString() {
+        return "City{"
+                + "name='" + name + '\''
+                + ", country='" + country + '\''
+                + ", population=" + population
+                + ", area=" + area + " sq.km."
+                + ", airport=" + airport
+                + ", metro=" + metro
+                + ", seaport=" + seaport
+                + '}';
+    }
+
     static class Builder {
         private String name;
         private String country;
@@ -64,5 +77,18 @@ public class City {
             city.seaport = seaport;
             return city;
         }
+    }
+
+    public static void main(String[] args) {
+        City city = new Builder().buildName("City")
+                .buildCountry("Country")
+                .buildArea(10000)
+                .buildPopulation(100000)
+                .buildAirport(false)
+                .buildMetro(false)
+                .buildSeaport(true)
+                .build();
+
+        System.out.println(city);
     }
 }
