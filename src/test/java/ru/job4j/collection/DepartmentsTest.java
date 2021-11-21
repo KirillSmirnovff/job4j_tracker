@@ -1,6 +1,8 @@
 package ru.job4j.collection;
 
 import org.junit.Test;
+
+import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.Matchers.*;
@@ -52,7 +54,7 @@ public class DepartmentsTest {
 
     @Test
     public void whenSortAsc() {
-        List<String> input = List.of(
+        List<String> input = Arrays.asList(
                 "K2/SK2",
                 "K1",
                 "K1/SSK2",
@@ -70,7 +72,7 @@ public class DepartmentsTest {
 
     @Test
     public void whenSortDesc() {
-        List<String> input = List.of(
+        List<String> input = Arrays.asList(
                 "K2/SK2",
                 "K1",
                 "K1/SSK2",
