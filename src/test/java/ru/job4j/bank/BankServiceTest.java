@@ -23,7 +23,7 @@ public class BankServiceTest {
         BankService bank = new BankService();
         bank.addUser(user);
         bank.deleteUser("3434");
-        assertThat(Optional.empty(), is(bank.findByPassport("3434")));
+        assertThat(bank.findByPassport("3434"), is(Optional.empty()));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class BankServiceTest {
         BankService bank = new BankService();
         bank.addUser(user);
         bank.addAccount(user.getPassport(), new Account("5546", 150D));
-        assertThat(Optional.empty(), is(bank.findByRequisite("34", "5546")));
+        assertThat(bank.findByRequisite("34", "5546"), is(Optional.empty()));
     }
 
     @Test
