@@ -47,9 +47,9 @@ public class StartUI {
                     new FindAllAction(output),
                     new FindByIdAction(output),
                     new FindByNameAction(output),
-                    new ExitAction()
+                    new ExitAction(output)
             );
-            new StartUI().init(input, tracker, actions);
+            new StartUI(output).init(input, tracker, actions);
         } catch (Exception e) {
             e.printStackTrace();
         }

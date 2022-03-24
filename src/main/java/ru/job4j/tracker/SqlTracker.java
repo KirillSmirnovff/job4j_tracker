@@ -10,6 +10,13 @@ public class SqlTracker implements Store, AutoCloseable {
 
     private Connection cn;
 
+    public SqlTracker(Connection cn) {
+        this.cn = cn;
+    }
+
+    public SqlTracker() {
+    }
+
     private Item getItem(ResultSet set) throws SQLException {
         return new Item(
                 set.getInt("id"),
@@ -67,7 +74,7 @@ public class SqlTracker implements Store, AutoCloseable {
                 cn.prepareStatement("update items set name = ?, created = ? where id = ?")) {
             statement.setString(1, item.getName());
             statement.setTimestamp(2, Timestamp.valueOf(item.getTime()));
-            statement.setInt(3, item.getId());
+            statement.setInt(3, id);
             int affected = statement.executeUpdate();
             rsl = affected > 0;
         } catch (Exception e) {
