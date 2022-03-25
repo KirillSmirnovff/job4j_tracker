@@ -54,8 +54,7 @@ public class SqlTrackerTest {
     @Test
     public void whenSaveItemAndFindByGeneratedIdThenMustBeTheSame() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item item = new Item("item");
-        tracker.add(item);
+        Item item = tracker.add(new Item("item"));
         assertThat(tracker.findById(item.getId()), is(item));
     }
 
@@ -70,10 +69,8 @@ public class SqlTrackerTest {
     @Test
     public void whenTestFindAll() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item first = new Item("First");
-        Item second = new Item("Second");
-        tracker.add(first);
-        tracker.add(second);
+        Item first = tracker.add(new Item("First"));
+        tracker.add(new Item("Second"));
         Item result = tracker.findAll().get(0);
         assertThat(result.getName(), is(first.getName()));
     }
@@ -81,29 +78,26 @@ public class SqlTrackerTest {
     @Test
     public void whenTestFindByNameCheckArrayLength() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item first = new Item("First");
-        Item second = new Item("Second");
-        tracker.add(first);
-        tracker.add(second);
-        tracker.add(new Item("First"));
+        Item first = tracker.add(new Item("First"));
         tracker.add(new Item("Second"));
-        tracker.add(new Item("First"));
+        Item third = tracker.add(new Item("First"));
+        tracker.add(new Item("Second"));
+        Item fifth = tracker.add(new Item("First"));
         List<Item> result = tracker.findByName(first.getName());
         assertThat(result.size(), is(3));
+        assertThat(result, is(List.of(first, third, fifth)));
     }
 
     @Test
     public void whenTestFindByNameCheckSecondItemName() {
         SqlTracker tracker = new SqlTracker(connection);
-        Item first = new Item("First");
-        Item second = new Item("Second");
-        tracker.add(first);
-        tracker.add(second);
         tracker.add(new Item("First"));
-        tracker.add(new Item("Second"));
+        Item second = tracker.add(new Item("Second"));
+        tracker.add(new Item("First"));
+        Item forth = tracker.add(new Item("Second"));
         tracker.add(new Item("First"));
         List<Item> result = tracker.findByName(second.getName());
-        assertThat(result.get(1).getName(), is(second.getName()));
+        assertThat(result, is(List.of(second, forth)));
     }
 
     @Test
